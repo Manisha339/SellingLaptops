@@ -1,0 +1,49 @@
+﻿@{
+        ViewData["Title"] = "Product Details";
+        string[] TableHeaders = new string[] {"ID"
+          ,"Product Name"
+          ,"Image"
+          ,"Price"
+          ,"Description"
+        ,"Details"};
+}
+<div>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                @{ 
+                    foreach(var head in TableHeaders)
+            {
+                                <th>
+                                    @head
+                                    &nbsp;
+                                    &nbsp;
+                                    &nbsp;
+                                    &nbsp;
+                                </th>
+            }
+                }
+                
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                if (Model != null)
+                {
+                    foreach (var Data in Model)
+                    {
+                        <tr>
+                            <td>@Data.ID</td>
+                            <td>@Data.ProductName</td>
+                            <td><img src="@Data.ImgUrl" width="70" height="70"/></td>
+                            <td>@Data.Price</td>
+                            <td>@Data.Description</td>
+                            <td><button name="details">Add To Cart</button></td>
+                        </tr>
+                    }
+                }
+            }
+        </tbody>
+        
+    </table>
+</div>
